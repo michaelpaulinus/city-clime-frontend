@@ -2,16 +2,15 @@
 
 import { useEffect, useState } from 'react';
 import WeatherCard from '@/components/weather-card';
+import weatherService from '@/services/weather-service';
 
 export default function Home() {
 	useEffect(() => {
-		const fetchHealth = async () => {
-			const response = await fetch('/api/health');
-			const data = await response.json();
-			console.log(data);
+		const fetchCurrentWeather = async () => {
+			const response = await weatherService.getCurrentWeather('London');
 		};
 
-		fetchHealth();
+		fetchCurrentWeather();
 	}, []);
 
 	return (
