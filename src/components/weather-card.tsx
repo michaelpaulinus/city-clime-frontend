@@ -1,12 +1,13 @@
-export default function WeatherCard() {
+import ForecastWeather from '@/models/forecast-weather';
+
+export default function WeatherCard(weather: ForecastWeather) {
 	return (
 		<div>
-			<div>Location</div>
-			<div>Country icon</div>
-			<div>Temp</div>
-			<div>Precip</div>
-			<div>Wind</div>
-			<div>Last updated</div>
+			<div>Location: {weather.location.name}</div>
+			<div>Country icon: {weather.location.country}</div>
+			<div>Temp: {weather.current.temp_c}</div>
+			<div>Precip: {weather.current.precip_mm}</div>
+			<div>Wind: {weather.current.wind_mph}</div>
 		</div>
 	);
 }
