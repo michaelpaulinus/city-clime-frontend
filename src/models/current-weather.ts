@@ -1,20 +1,6 @@
-export interface WeatherData {
-	location: Location;
-	current: CurrentWeather;
-}
+import type WeatherCondition from "./weather-condition";
 
-export interface Location {
-	name: string;
-	region: string;
-	country: string;
-	lat: number;
-	lon: number;
-	tz_id: string;
-	localtime_epoch: number;
-	localtime: string;
-}
-
-export interface CurrentWeather {
+export default interface CurrentWeather {
 	last_updated_epoch: number;
 	last_updated: string;
 	temp_c: number;
@@ -44,10 +30,4 @@ export interface CurrentWeather {
 	uv: number;
 	gust_mph: number;
 	gust_kph: number;
-}
-
-export interface WeatherCondition {
-	text: string;
-	icon: string;
-	code: number;
 }
