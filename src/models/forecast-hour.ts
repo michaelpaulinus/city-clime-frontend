@@ -1,13 +1,14 @@
-import AirQuality from './air-quality';
-import type WeatherCondition from './weather-condition';
-
-export default interface CurrentWeather {
-	last_updated_epoch: number;
-	last_updated: string;
+export default interface ForecastHour {
+	time_epoch: number;
+	time: string;
 	temp_c: number;
 	temp_f: number;
 	is_day: number;
-	condition: WeatherCondition;
+	condition: {
+		text: string;
+		icon: string;
+		code: number;
+	};
 	wind_mph: number;
 	wind_kph: number;
 	wind_degree: number;
@@ -16,6 +17,7 @@ export default interface CurrentWeather {
 	pressure_in: number;
 	precip_mm: number;
 	precip_in: number;
+	snow_cm: number;
 	humidity: number;
 	cloud: number;
 	feelslike_c: number;
@@ -26,10 +28,13 @@ export default interface CurrentWeather {
 	heatindex_f: number;
 	dewpoint_c: number;
 	dewpoint_f: number;
+	will_it_rain: number;
+	chance_of_rain: number;
+	will_it_snow: number;
+	chance_of_snow: number;
 	vis_km: number;
 	vis_miles: number;
-	uv: number;
 	gust_mph: number;
 	gust_kph: number;
-	air_quality: AirQuality;
+	uv: number;
 }
