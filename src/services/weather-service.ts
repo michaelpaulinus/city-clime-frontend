@@ -1,10 +1,10 @@
 class WeatherService {
 	async getCurrentWeather(location: string) {
-		return fetch('api/weather/current');
+		return fetch(`api/weather/${location}/current`);
 	}
 
-	getForecastedWeather(location: string) {
-		return fetch('api/weather/forecast');
+	async getForecastedWeather(location: string) {
+		return fetch(`api/weather/${location}/forecast`);
 	}
 }
 
