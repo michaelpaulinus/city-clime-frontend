@@ -1,5 +1,9 @@
-import Image from 'next/image';
+import WeatherCard from './components/weather-card';
 
 export default function Home() {
-	return <div></div>;
+	return (
+		<div>
+			<WeatherCard />
+		</div>
+	);
 }
