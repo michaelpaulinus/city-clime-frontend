@@ -1,3 +1,4 @@
+import Location from './location';
 import Current from './current';
 import ForecastDay from './forecast-day';
 

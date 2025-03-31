@@ -1,5 +1,5 @@
 import AirQuality from './air-quality';
-import type WeatherCondition from './weather-condition';
+import WeatherCondition from './weather-condition';
 
 export default interface Current {
 	last_updated_epoch: number;
