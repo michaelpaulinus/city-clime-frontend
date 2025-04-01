@@ -22,5 +22,15 @@ export default function Home() {
 		fetchForecastWeather();
 	}, []);
 
-	return <div>{<WeatherCard weather={forecastWeather[0]} />} </div>;
+	return (
+		<div>
+			{forecastWeather.length > 0 &&
+				forecastWeather.map((weather, index) => (
+					<WeatherCard
+						key={index}
+						weather={weather}
+					/>
+				))}
+		</div>
+	);
 }

@@ -1,6 +1,6 @@
 import ForecastWeather from '@/models/forecast-weather';
 
-export default function WeatherCard(weather: ForecastWeather) {
+export default function WeatherCard({ weather }: { weather: ForecastWeather }) {
 	return (
 		<div>
 			<div>Location: {weather.location.name}</div>
