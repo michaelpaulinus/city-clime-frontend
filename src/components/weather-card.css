@@ -31,13 +31,6 @@
 	gap: 1rem;
 }
 
-.panel-item {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	border: pink solid;
-}
-
 .font-xlarge {
 	font-size: x-large;
 	font-weight: bold;
