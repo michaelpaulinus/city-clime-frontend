@@ -1,4 +1,5 @@
 import Astro from './astro';
+import Condition from './condition';
 import ForecastHour from './forecast-hour';
 
 export default interface ForecastDay {
@@ -23,11 +24,7 @@ export default interface ForecastDay {
 		daily_chance_of_rain: number;
 		daily_will_it_snow: number;
 		daily_chance_of_snow: number;
-		condition: {
-			text: string;
-			icon: string;
-			code: number;
-		};
+		condition: Condition;
 		uv: number;
 	};
 	astro: Astro;

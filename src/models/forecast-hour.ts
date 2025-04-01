@@ -1,14 +1,11 @@
+import Condition from './condition';
 export default interface ForecastHour {
 	time_epoch: number;
 	time: string;
 	temp_c: number;
 	temp_f: number;
 	is_day: number;
-	condition: {
-		text: string;
-		icon: string;
-		code: number;
-	};
+	condition: Condition;
 	wind_mph: number;
 	wind_kph: number;
 	wind_degree: number;

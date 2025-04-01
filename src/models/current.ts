@@ -1,5 +1,5 @@
 import AirQuality from './air-quality';
-import WeatherCondition from './weather-condition';
+import Condition from './condition';
 
 export default interface Current {
 	last_updated_epoch: number;
@@ -7,7 +7,7 @@ export default interface Current {
 	temp_c: number;
 	temp_f: number;
 	is_day: number;
-	condition: WeatherCondition;
+	condition: Condition;
 	wind_mph: number;
 	wind_kph: number;
 	wind_degree: number;
