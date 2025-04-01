@@ -4,14 +4,12 @@ import ForecastWeather from '@/models/forecast-weather';
 class WeatherService {
 	async getCurrentWeather(location: string) {
 		const response = await fetch(`api/weather/${location}/current`);
-		const data: CurrentWeather = await response.json();
-		return data;
+		return (await response.json()) as CurrentWeather;
 	}
 
 	async getForecastedWeather(location: string) {
 		const response = await fetch(`api/weather/${location}/forecast`);
-		const data: ForecastWeather = await response.json();
-		return data;
+		return (await response.json()) as ForecastWeather;
 	}
 }
 
