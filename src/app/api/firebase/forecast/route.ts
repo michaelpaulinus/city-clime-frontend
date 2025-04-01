@@ -13,9 +13,11 @@ export async function GET(_: Request) {
 
 export async function PUT(_: Request) {
 	try {
-		for (const city of cities) {
-			await firebaseService.addForecastedWeather(city);
-		}
+		await Promise.all(
+			cities.map(async (city) => {
+				await firebaseService.addForecastedWeather(city);
+			})
+		);
 		return NextResponse.json({ status: 201 });
 	} catch (error) {
 		return NextResponse.json({ status: 500, error: error });
