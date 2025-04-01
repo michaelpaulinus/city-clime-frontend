@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react';
 import WeatherCard from '@/components/weather-card';
-import firebaseService from '@/services/firebase-service';
 import ForecastWeather from '@/models/forecast-weather';
 
 export default function Home() {
@@ -10,10 +9,8 @@ export default function Home() {
 
 	useEffect(() => {
 		const fetchForecastWeather = async () => {
-			const forecastedWeatherData =
-				await firebaseService.getForecastedWeather();
-
-			setForecastWeather(forecastedWeatherData);
+			const response = await fetch('/api/firebase/forecast');
+			setForecastWeather((await response.json()) as ForecastWeather[]);
 		};
 
 		fetchForecastWeather();
