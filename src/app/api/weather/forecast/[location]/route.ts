@@ -13,6 +13,6 @@ export async function GET(
 		const data: ForecastWeather = await response.json();
 		return NextResponse.json(data);
 	} catch (error) {
-		return NextResponse.json({ status: 500 });
+		return NextResponse.json({ status: 500, error: error });
 	}
 }
