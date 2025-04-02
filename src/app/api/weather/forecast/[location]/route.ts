@@ -1,8 +1,8 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import ForecastWeather from '@/models/forecast-weather';
 
 export async function GET(
-	_: Request,
+	_: NextRequest,
 	context: { params: { location: string } }
 ) {
 	try {
