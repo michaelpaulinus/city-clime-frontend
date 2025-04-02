@@ -1,0 +1,19 @@
+.forecast-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+}
+
+.forecast-item {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border: purple solid;
+}
+
+.forecast-temps {
+	display: flex;
+	justify-content: space-between;
+}

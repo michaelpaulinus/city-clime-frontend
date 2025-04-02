@@ -1,5 +1,8 @@
-import LineGraph from '@/components/line-graph';
 import ForecastWeather from '@/models/forecast-weather';
+import LineGraph from '@/components/line-graph';
+import DailyForecast from './daily-forecast';
+import AstroCard from './astro-card';
+import './dashboard.css';
 
 export default function Dashboard({
 	forecastWeather,
@@ -20,9 +23,10 @@ export default function Dashboard({
 
 	return (
 		<div className="container">
-			<div>Title</div>
-			<div>Daily Forecast</div>
-			<div>Astro</div>
+			<div>{forecastWeather.location.name}</div>
+			<div>
+				<DailyForecast weather={forecastWeather} />
+			</div>
 			<div className="graphs">
 				<LineGraph
 					data={tempData}
@@ -35,6 +39,9 @@ export default function Dashboard({
 					dataVars={['willRain', 'chanceRain']}
 					labels={['Will Rain', 'Chance of Rain']}
 				/>
+			</div>
+			<div>
+				<AstroCard astro={forecastWeather.forecast.forecastday[0].astro} />
 			</div>
 		</div>
 	);

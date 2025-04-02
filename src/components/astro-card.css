@@ -1,0 +1,13 @@
+.astro-container {
+	display: flex;
+	gap: 1rem;
+	border: blue solid;
+}
+
+.astro-card-item {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border: pink solid;
+}
