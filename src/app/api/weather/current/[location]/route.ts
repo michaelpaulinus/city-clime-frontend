@@ -8,7 +8,7 @@ export async function GET(
 	try {
 		const { location } = await params;
 		const response = await fetch(
-			`http://api.weatherapi.com/v1/current.json?key=${process.env.WEATHER_API_KEY}&q=${location}&aqi=yes`
+			`https://api.weatherapi.com/v1/current.json?key=${process.env.WEATHER_API_KEY}&q=${location}&aqi=yes`
 		);
 		const data: CurrentWeather = await response.json();
 		return NextResponse.json(data);
