@@ -3,10 +3,10 @@ import ForecastWeather from '@/models/forecast-weather';
 
 export async function GET(
 	_: NextRequest,
-	context: { params: { location: string } }
+	{ params }: { params: Promise<{ location: string }> }
 ) {
 	try {
-		const { location } = await context.params;
+		const { location } = await params;
 		const response = await fetch(
 			`http://api.weatherapi.com/v1/forecast.json?key=${process.env.WEATHER_API_KEY}&q=${location}&days=7&aqi=yes&alerts=no`
 		);
