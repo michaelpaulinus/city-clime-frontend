@@ -6,7 +6,7 @@ export async function GET(
 	context: { params: { location: string } }
 ) {
 	try {
-		const { location } = context.params;
+		const { location } = await context.params;
 		const response = await fetch(
 			`http://api.weatherapi.com/v1/current.json?key=${process.env.WEATHER_API_KEY}&q=${location}&aqi=yes`
 		);
