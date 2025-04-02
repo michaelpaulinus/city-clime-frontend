@@ -1,8 +1,8 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import firebaseService from '@/services/firebase-service';
 import cities from '@/app/data/cities';
 
-export async function GET(_: Request) {
+export async function GET(_: NextRequest) {
 	try {
 		const forecastedWeather = await firebaseService.getForecastedWeather();
 		return NextResponse.json(forecastedWeather);
@@ -11,7 +11,7 @@ export async function GET(_: Request) {
 	}
 }
 
-export async function PUT(_: Request) {
+export async function PUT(_: NextRequest) {
 	try {
 		await Promise.all(
 			cities.map(async (city) => {

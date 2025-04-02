@@ -1,12 +1,12 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import CurrentWeather from '@/models/current-weather';
 
 export async function GET(
-	_: Request,
-	context: { params: { location: string } }
+	_: NextRequest,
+	{ params }: { params: Promise<{ location: string }> }
 ) {
 	try {
-		const { location } = context.params;
+		const { location } = await params;
 		const response = await fetch(
 			`http://api.weatherapi.com/v1/current.json?key=${process.env.WEATHER_API_KEY}&q=${location}&aqi=yes`
 		);

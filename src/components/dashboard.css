@@ -1,0 +1,10 @@
+.container {
+	display: flex;
+	flex-direction: column;
+}
+
+.graphs {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
