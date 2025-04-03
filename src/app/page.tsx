@@ -1,9 +1,16 @@
 'use client';
 
+import './page.css';
 import { useEffect, useState } from 'react';
 import WeatherCard from '@/components/weather-card';
 import ForecastWeather from '@/models/forecast-weather';
 import Dashboard from '@/components/dashboard';
+import {
+	Dialog,
+	DialogContent,
+	DialogTitle,
+	DialogTrigger,
+} from '@/components/ui/dialog';
 
 export default function Home() {
 	const [forecastWeather, setForecastWeather] = useState<ForecastWeather[]>([]);
@@ -18,16 +25,29 @@ export default function Home() {
 	}, []);
 
 	return (
-		<div>
-			{forecastWeather.length > 0 && (
-				<Dashboard forecastWeather={forecastWeather[0]} />
-			)}
+		<div className="container">
 			{forecastWeather.length > 0 &&
 				forecastWeather.map((weather, index) => (
-					<WeatherCard
-						key={index}
-						weather={weather}
-					/>
+					<Dialog>
+						<DialogTrigger>
+							<WeatherCard
+								key={index}
+								weather={weather}
+							/>
+						</DialogTrigger>
+						<DialogContent>
+							<DialogTitle></DialogTitle>
+							{forecastWeather.length > 0 && (
+								<Dashboard
+									forecastWeather={
+										forecastWeather.find(
+											(fw) => fw.location.name === weather.location.name
+										)!
+									}
+								/>
+							)}
+						</DialogContent>
+					</Dialog>
 				))}
 		</div>
 	);
