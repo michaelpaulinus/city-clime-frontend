@@ -4,6 +4,12 @@ import { useEffect, useState } from 'react';
 import WeatherCard from '@/components/weather-card';
 import ForecastWeather from '@/models/forecast-weather';
 import Dashboard from '@/components/dashboard';
+import {
+	Dialog,
+	DialogContent,
+	DialogTitle,
+	DialogTrigger,
+} from '@/components/ui/dialog';
 
 export default function Home() {
 	const [forecastWeather, setForecastWeather] = useState<ForecastWeather[]>([]);
@@ -17,21 +23,31 @@ export default function Home() {
 		fetchForecastWeather();
 	}, []);
 
-	const dashboardItem = forecastWeather.find(
-		(weather) => weather.location.name === 'Johannesburg'
-	);
-
 	return (
 		<div>
-			{forecastWeather.length > 0 && (
-				<Dashboard forecastWeather={dashboardItem!} />
-			)}
 			{forecastWeather.length > 0 &&
 				forecastWeather.map((weather, index) => (
-					<WeatherCard
-						key={index}
-						weather={weather}
-					/>
+					<Dialog>
+						<DialogTrigger>
+							<WeatherCard
+								key={index}
+								weather={weather}
+							/>
+						</DialogTrigger>
+						<DialogContent>
+							<DialogTitle></DialogTitle>
+							{forecastWeather.length > 0 && (
+								<Dashboard
+									forecastWeather={
+										forecastWeather.find(
+											(weather2) =>
+												weather2.location.name === weather.location.name
+										)!
+									}
+								/>
+							)}
+						</DialogContent>
+					</Dialog>
 				))}
 		</div>
 	);
