@@ -13,7 +13,7 @@ export default function AstroCard(astro: { astro: Astro }) {
 					width="36"
 					height="36"
 				/>
-				<div>{astro.astro.is_sun_up}</div>
+				<div>{astro.astro.is_sun_up ? 'Yes' : 'No'}</div>
 			</div>
 			<div className="astro-card-item">
 				<div>Sunrise</div>
@@ -40,7 +40,7 @@ export default function AstroCard(astro: { astro: Astro }) {
 					width="36"
 					height="36"
 				/>
-				<div>{astro.astro.is_moon_up}</div>
+				<div>{astro.astro.is_moon_up ? 'Yes' : 'No'}</div>
 			</div>
 			<div className="astro-card-item">
 				<div>Moonrise</div>
