@@ -1,5 +1,6 @@
 'use client';
 
+import './page.css';
 import { useEffect, useState } from 'react';
 import WeatherCard from '@/components/weather-card';
 import ForecastWeather from '@/models/forecast-weather';
@@ -24,7 +25,7 @@ export default function Home() {
 	}, []);
 
 	return (
-		<div>
+		<div className="container">
 			{forecastWeather.length > 0 &&
 				forecastWeather.map((weather, index) => (
 					<Dialog>
