@@ -41,8 +41,7 @@ export default function Home() {
 								<Dashboard
 									forecastWeather={
 										forecastWeather.find(
-											(weather2) =>
-												weather2.location.name === weather.location.name
+											(fw) => fw.location.name === weather.location.name
 										)!
 									}
 								/>
