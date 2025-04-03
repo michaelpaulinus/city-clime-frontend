@@ -17,10 +17,14 @@ export default function Home() {
 		fetchForecastWeather();
 	}, []);
 
+	const dashboardItem = forecastWeather.find(
+		(weather) => weather.location.name === 'Johannesburg'
+	);
+
 	return (
 		<div>
 			{forecastWeather.length > 0 && (
-				<Dashboard forecastWeather={forecastWeather[0]} />
+				<Dashboard forecastWeather={dashboardItem!} />
 			)}
 			{forecastWeather.length > 0 &&
 				forecastWeather.map((weather, index) => (
