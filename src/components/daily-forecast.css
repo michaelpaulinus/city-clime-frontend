@@ -10,6 +10,8 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	width: 8rem;
+	height: 8rem;
 	border: purple solid;
 }
 
