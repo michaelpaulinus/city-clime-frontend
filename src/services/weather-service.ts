@@ -3,7 +3,7 @@ import httpClient from '../configs/http-client';
 
 class WeatherService {
   async getForecastedWeather() {
-    return httpClient.get<ForecastWeather>(`/weather/forecast`);
+    return httpClient.get<ForecastWeather[]>(`/weather/forecast`);
   }
 }
 
