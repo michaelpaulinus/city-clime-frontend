@@ -11,7 +11,6 @@ function createData(cityName: string, actualTemp: number, feelsLikeTemp: number)
   return { cityName, actualTemp, feelsLikeTemp };
 }
 
-// define props type
 type CityWeatherTableProps = {
   forecastedWeatherPerCity: ForecastWeather[];
 };
